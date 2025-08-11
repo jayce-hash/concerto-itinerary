@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Concerto+</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&family=Lora:wght@400;600&display=swap" rel="stylesheet">
+  <link href="./style.css" rel="stylesheet" />
+
+  <script>
+    // Optional: set this to your Netlify functions domain if you're hosting static files elsewhere.
+    // Example: window.CONCERTO_API_BASE = "https://YOUR-SITE.netlify.app";
+    window.CONCERTO_API_BASE = window.CONCERTO_API_BASE || "";
+  </script>
+</head>
+<body>
+  <div class="bg-stars"></div>
+  <div class="music-notes" aria-hidden="true"></div>
+
+  <!-- Welcome Screen -->
+  <section id="screen-welcome" class="screen active">
+    <div class="container">
+      <header class="hero">
+        <h1 class="headline">PLAN YOUR NIGHT WITH <span class="brand">CONCERTO+</span></h1>
+        <p class="subhead">We’ll craft a premium, curated itinerary for your show — from the concert to the city.</p>
+        <button id="btn-start" class="btn btn-primary btn-xl">Start Planning</button>
+        <p class="disclaimer">No account needed. Takes about 60 seconds.</p>
+      </header>
+    </div>
+  </section>
+
+  <!-- Multi-Step Form -->
+  <section id="screen-form" class="screen">
+    <div class="container narrow">
+      <div class="progress"><div id="progress-bar" class="progress-bar"></div></div>
+      <div id="step-wrapper" class="card step-card">
+        <!-- Step content injected by app.js -->
+      </div>
+      <div class="nav sticky-actions">
+        <button id="btn-prev" class="btn btn-ghost" disabled>Back</button>
+        <button id="btn-next" class="btn btn-primary">Next</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Loading -->
+  <section id="screen-loading" class="screen">
+    <div class="container">
+      <div class="loader">
+        <div class="dots"><span></span><span></span><span></span></div>
+      </div>
+      <p class="loading-text" id="loading-line">We’re putting your night together…</p>
+    </div>
+  </section>
+
+  <!-- Results -->
+  <section id="screen-results" class="screen">
+    <div class="container wide">
+      <header class="results-header">
+        <div>
+          <h2>Your Night Out</h2>
+          <p class="muted" id="results-context"></p>
+        </div>
+        <div class="results-actions">
+          <button id="btn-share" class="btn btn-ghost">Share Link</button>
+          <button id="btn-pdf" class="btn btn-ghost">Save as PDF</button>
+          <button id="btn-edit" class="btn btn-ghost">Edit Answers</button>
+          <button id="btn-new" class="btn btn-ghost">Start Over</button>
+        </div>
+      </header>
+
+      <div id="itinerary" class="grid"></div>
+    </div>
+  </section>
+
+  <footer class="footer no-print">
+    <div class="container">
+      <p class="tiny">© Concerto. “From the concert, to the city.”</p>
+    </div>
+  </footer>
+
+  <script src="./app.js"></script>
+</body>
+</html>
